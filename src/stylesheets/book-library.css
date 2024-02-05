@@ -1,0 +1,26 @@
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 150px;
+}
+
+.search-box input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+.search-box input::placeholder {
+    transition: transform 0.3s ease-out;
+}
+
+.search-box.focused input::placeholder {
+    transform: translateX(-10px) translateY(-14px);
+    font-size: 0.8em;
+    color: #3498db;
+}
