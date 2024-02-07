@@ -47,9 +47,7 @@ const BookLibrary = () => {
     :
       <div style={{width: "100%", margin: "20px",textAlign: "center",padding: "40px",fontSize: "24px"}}>No books found.</div>
 }
-    <div className="pagination">
       <Pagination/>
-    </div>
   </div>
   )
 }
