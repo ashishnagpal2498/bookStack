@@ -6,7 +6,7 @@ const BookCard = ({books}) => {
     <>
     {books.map((book, index) => (
         <li className="book-card" key={index}>
-          <img className="book-cover" src={index>2 ? bookUrl2 : bookUrl1} alt={book.title} />
+          <img className="book-cover" src={book.title.includes("Potter") ? bookUrl2 : bookUrl1} alt={book.title} />
           <div className="book-shelf"></div>
         </li>
       ))}

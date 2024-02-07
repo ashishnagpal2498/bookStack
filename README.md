@@ -3,8 +3,10 @@
 
 * *Date Created*: 05 February 2024
 * *Last Modification Date*: 07 February 2024
-* *Lab URL*: 
-* *Git URL*: 
+* *Lab URL*: https://git.cs.dal.ca/anagpal/csci-5709-assignments/-/tree/main/Assignment1?ref_type=heads
+* *GitLab URL*: https://git.cs.dal.ca/anagpal/csci-5709-assignments
+* *Github URL*: https://github.com/ashishnagpal2498/bookStack
+* *Deployment Link*: https://bookstack-awd.netlify.app/
 
 
 ## Authors
@@ -58,6 +60,7 @@ To start with the project, I created a new sample react application using ```npx
 ## Deployment
 
 The deployment is made through Netlify. 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/91e4c658-01a7-4e65-a1eb-f70557c9f365/deploy-status)](https://app.netlify.com/sites/bookstack-awd/deploys)
 
 ## Testing
 I have implemented search task which is part of Book Library Feature. To test the task working you can search the following terms: "Percy", "Harry", "1".
