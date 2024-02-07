@@ -1,90 +1,54 @@
 import React, {useState} from 'react'
 import BookCard from '../layouts/BookCard'
 import Pagination from '../layouts/Pagination'
-import Search from '../layouts/Search';
+import { FilterBar } from '../layouts/FilterBar';
 
 const books = [
     {
-      title: "Harry Potter",
-      author: "J.K Rowling"
+      title: "Percy Jackson 1",
+      author: "Rick Riordan",
     }, {
-      title: "Abc",
-      author: "ghfd"
+      title: "Percy Jackson 2",
+      author: "Rick Riordan",
     },
     {
-      title: "Fun with maths",
-      author: "R. D Sharma"
+      title: "Percy Jackson 3",
+      author: "Rick Riordan",
+    },
+    {
+      title: "Harry Potter 1",
+      author: "J. K Rowling"
+    },
+    {
+      title: "Harry Potter 2",
+      author: "J. K Rowling"
+    },
+    {
+      title: "Harry Potter 3",
+      author: "J. K Rowling"
     }
   
   ];
 
 const BookLibrary = () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [filter, setFilter] = useState('all');
-    const [searchTerm, setSearchTerm] = useState('');
-    const [sortBy, setSortBy] = useState('title');
-    const booksPerPage = 6; // Change this as needed
   
-    const filteredBooks = books
-      .filter(book => filter === 'all' || book.genre === filter)
-      .filter(book => book.title.toLowerCase().includes(searchTerm.toLowerCase()));
-  
-    const sortedBooks = [...filteredBooks].sort((a, b) => {
-      if (sortBy === 'title') {
-        return a.title.localeCompare(b.title);
-      } else if (sortBy === 'author') {
-        return a.author.localeCompare(b.author);
-      } else if (sortBy === 'publication_date') {
-        return new Date(b.publicationDate) - new Date(a.publicationDate);
-      }
-      return 0;
-    });
-  
-    const indexOfLastBook = currentPage * booksPerPage;
-    const indexOfFirstBook = indexOfLastBook - booksPerPage;
-    const currentBooks = sortedBooks.slice(indexOfFirstBook, indexOfLastBook);
-  
-    const totalPages = Math.ceil(sortedBooks.length / booksPerPage);
-  
-    const handlePageChange = (pageNumber) => {
-      setCurrentPage(pageNumber);
-    };
-  
-    const handleFilterChange = (selectedFilter) => {
-      setFilter(selectedFilter);
-      setCurrentPage(1); 
-    };
-  
-    const handleSearchChange = (newSearchTerm) => {
-      setSearchTerm(newSearchTerm);
-      setCurrentPage(1); 
-    };
-  
-    const handleSortChange = (selectedSortBy) => {
-      setSortBy(selectedSortBy);
-      setCurrentPage(1); 
-    };
-  
+  const [filteredBooks,updateFilteredBooks] = useState(books);
+
+  const filterBooks = (updatedBooks) => {
+      updateFilteredBooks(updatedBooks)
+  }
   return (
     <div className="container-row container-content-center">
-    <div className="header">
-      <div className="filter-search-sort">
-        <button>Filter</button>
-        <Search onSearchChange={handleSearchChange} />
-        <button>Sort By</button>
-      </div>
-    </div>
-
+    <FilterBar filterBooks = {filterBooks} books={books} />
+    { filteredBooks.length > 0 ?
     <ul className="book-list">
-      <BookCard books={books}/>
+      <BookCard books={filteredBooks}/>
     </ul>
-
+    :
+      <div style={{width: "100%", margin: "20px",textAlign: "center",padding: "40px",fontSize: "24px"}}>No books found.</div>
+}
     <div className="pagination">
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <Pagination/>
     </div>
   </div>
   )
