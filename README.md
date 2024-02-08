@@ -3,7 +3,7 @@
 
 * *Date Created*: 05 February 2024
 * *Last Modification Date*: 07 February 2024
-* *Lab URL*: https://git.cs.dal.ca/anagpal/csci-5709-assignments/-/tree/main/Assignment1?ref_type=heads
+* *Assignment URL*: https://git.cs.dal.ca/anagpal/csci-5709-assignments/-/tree/main/Assignment1?ref_type=heads
 * *GitLab URL*: https://git.cs.dal.ca/anagpal/csci-5709-assignments
 * *Github URL*: https://github.com/ashishnagpal2498/bookStack
 * *Deployment Link*: https://bookstack-awd.netlify.app/
@@ -45,7 +45,7 @@ To start with the project, I created a new sample react application using ```npx
 
 1. [React](https://legacy.reactjs.org/docs/getting-started.html/) - Web framework
 2. [Npm](https://docs.npmjs.com//) - Dependency Management
-3. [Node]() - Javascript Runtime environment
+3. [Node](https://nodejs.org/docs/latest/api/) - Javascript Runtime environment
 
 ### Installing
 
