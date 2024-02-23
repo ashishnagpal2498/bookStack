@@ -37,158 +37,15 @@
 
 /* Book Background End */
 
-
-.filter-bar {
+.book-library-container {
     display: flex;
+    padding: 2em;
     gap: 1em;
-    width: 100%;
     flex-wrap: wrap;
 }
-
-#filter-icon {
-    margin-right: 20px;
+.books-container {
+    flex: 4;
 }
-
-#filter-icon svg {
-    width: 14.5px;
-}
-
-/* Search Box Start */
-.search-box {
-    position: relative;
-    flex: 1;
-    min-width: 200px;
-}
-
-.search-box input {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 2em;
-    padding-left: 40px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.search-box label {
-    position: absolute;
-    top: 15px;
-    left: 40px;
-    background-color: var(--white-color);
-    z-index: 2;
-    transition: transform 0.3s ease-out, font-size 0.3s ease-out, color 0.3s ease-out;
-    pointer-events: none;
-    color: var(--primary-text);
-    opacity: 1;
-}
-
-.search-box input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    outline: none;
-}
-
-.search-box input:focus+label {
-    transform: translate(-24px, -20px);
-    font-size: 0.8em;
-    color: #3498db;
-}
-
-.search-box input:not(:placeholder-shown):not(:focus)+label {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.search-box svg {
-    width: 15px;
-    position: absolute;
-    left: 20px;
-    top: 16px;
-    opacity: 1;
-    cursor: none;
-    transition: opacity 0.3s ease-in-out;
-}
-
-#remove-search {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    opacity: 0;
-    color: black;
-    pointer-events: none;
-}
-
-.search-box input:not(:placeholder-shown)~#remove-search {
-    opacity: 1;
-    cursor: pointer;
-    pointer-events: all;
-}
-
-/* Search Box Ends */
-
-/* Sort By */
-
-.dropdown {
-    position: relative;
-    min-width: 165px;
-}
-
-.dropdown .dropdown-btn {
-    cursor: pointer;
-    position: relative;
-    text-align: center;
-    background: var(--white-color);
-    border-radius: 2em;
-    padding: 15px 20px;
-    border: 1px solid #ddd;
-    color: var(--primary-text);
-    font-weight: 500;
-}
-
-.dropdown-btn:hover {
-    border-color: var(--primary-color);
-}
-
-.dropdown-btn label {
-    position: absolute;
-    left: 15px;
-    background-color: var(--white-color);
-    font-size: 12px;
-    color: var(--primary-text);
-    top: -6px;
-    width: 50px;
-}
-
-.dropdown-content {
-    position: absolute;
-    left: 0;
-    list-style-type: none;
-    width: 100%;
-    margin: 0;
-    background-color: var(--white-color);
-    padding: 15px 5px;
-    box-sizing: border-box;
-    border-radius: 3px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
-    margin-top: 3px;
-    z-index: 2;
-}
-
-.dropdown-content .item {
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.dropdown-content .item:hover {
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-.selected {
-    color: var(--primary-color);
-}
-
 
 /* Book List Start */
 
@@ -210,20 +67,27 @@
     display: flex;
     border-radius: 10px;
     justify-content: center;
-    background-color: rgba(211, 211, 211, 0.7);
+    background: linear-gradient(30deg, rgba(254, 228, 175, 0.3), #996443);
+    ;
     padding: 20px;
 
 }
 
-.book-cover:hover {
+.book-img:hover {
     transform: translateY(-30px);
 }
 
 .book-cover {
-    transform: translateY(-40px);
     width: 230px;
     height: 180px;
+    text-align: center;
+}
+
+.book-img {
+    height: 180px;
+    width: 180px;
     object-fit: contain;
+    transform: translateY(-40px);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -236,6 +100,33 @@
     text-align: center;
     box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
 }
+
+.skeleton-book-bg {
+    width: 230px;
+    height: 180px;
+    text-align: center;
+}
+
+.skeleton-book-cover {
+    height: 180px;
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    transform: translateY(-40px);
+    background: 
+    linear-gradient(90deg,#0000 33%,rgba(255,255,255,0.3) 50%,#0000 66%)
+    rgba(229, 228, 226, 0.6);
+  background-size:300% 100%;
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: right;    
+  }
+}
+
+/* Book Card Library */
 
 .pagination {
     margin-top: 20px;
@@ -304,10 +195,11 @@
     }
 }
 
-@media (max-width: 550px){
-    .pagination ul{
+@media (max-width: 550px) {
+    .pagination ul {
         order: -1;
     }
+
     .filter-bar {
         justify-content: space-around;
     }
