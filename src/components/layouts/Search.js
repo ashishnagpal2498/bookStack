@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import '../../stylesheets/book-library.css'
 
 const Search = ({ onSearchChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
